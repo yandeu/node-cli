@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "target": "ES2019",
+    "module": "CommonJS",
+
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+
+    // "sourceMap": true,
+    "declaration": true,
+    // "declarationMap": true,
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
