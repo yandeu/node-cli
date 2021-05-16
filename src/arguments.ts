@@ -1,5 +1,5 @@
 interface ParsedArgs {
-  [key: string]: Array<string>
+  [key: string]: Array<string> | undefined
 }
 
 const sortObjectByKeys = (obj: any) => {
@@ -65,6 +65,7 @@ export class Arguments {
     // add args to options => { opt: ['arg1', 'arg2']}
     const addArgToOption = (a: string) => {
       const key = lastOpt
+      // @ts-ignore
       _args = { ..._args, [key]: [..._args[key], a] }
     }
 
@@ -94,7 +95,7 @@ export class Arguments {
     this._parsedArgs = _args
   }
 
-  public getArguments() {
+  public getArguments(): string[] | undefined {
     return this._parsedArgs['_']
   }
 
@@ -135,14 +136,18 @@ export class Arguments {
     return this.getOption(option, ...alias) ? true : false
   }
 
-  public getArgument(index: number) {
+  public getArgument(index: number): string | undefined {
     const args = this.getArguments()
+    if (!args) return
+
     if (args[index]) return args[index]
-    else return undefined
+    else return
   }
 
-  public hasArgument(arg: string) {
+  public hasArgument(arg: string): boolean {
     const args = this.getArguments()
+    if (!args) return false
+
     return args.includes(arg)
   }
 }
