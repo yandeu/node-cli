@@ -112,24 +112,18 @@ export class Arguments {
   }
 
   public getOption(option: string, ...alias: string[]) {
-    const _tmp = []
-
     const opts = this.getOptions()
+    if (!opts) return
 
-    if (opts[option]) {
-      _tmp.push(...opts[option])
-    }
+    if (opts[option]) return opts[option]
 
     if (alias && Array.isArray(alias)) {
-      alias.forEach(a => {
-        if (a && opts[a]) {
-          _tmp.push(...opts[a])
-          return
-        }
-      })
+      for (const a of alias) {
+        if (a && opts[a]) return opts[a]
+      }
     }
 
-    return _tmp.length > 0 ? _tmp : undefined
+    return
   }
 
   public hasOption(option: string, ...alias: string[]) {
