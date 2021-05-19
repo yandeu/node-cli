@@ -7,7 +7,7 @@ const args = process.argv.splice(2)
 
 if (args.length !== 1 || args[0] !== '--examples') {
   const text = `Please run: ${code('modifier', 'bold', 'npx node-cli@latest --examples')}`
-  error(text)
+  error(text, true)
 }
 
 // eslint-disable-next-line sort-imports

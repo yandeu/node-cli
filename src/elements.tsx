@@ -89,6 +89,9 @@ export const Red = (props: any) => {
 export const Gray = (props: any) => {
   return code('color', 'gray', props.children)
 }
+export const Cyan = (props: any) => {
+  return code('color', 'cyan', props.children)
+}
 
 // background
 export const Background: FC<{ color: _Background; children?: any }> = props => {

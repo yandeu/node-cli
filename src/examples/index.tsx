@@ -1,7 +1,7 @@
 import { Gray, Text } from '../elements'
 import { MultiSelect, Progress, Select, Tabs, Write, YesNo } from '../jsx/components'
 import { clear, clearDisplay, hideCursor, showCursor, write } from '../cli'
-import { comment, step } from '../messages'
+import { comment, error, info, question, step, success, warn } from '../messages'
 import { h, render } from '../jsx/core'
 import { Fragment } from '../jsx/fragment'
 import { Loading } from '../jsx/components/loading'
@@ -24,6 +24,7 @@ const main = async () => {
     'Write Answer',
     'Select',
     'Multi Select',
+    'Messages',
     'Tabs',
     'Progress Bar',
     'Loading Spinner',
@@ -54,6 +55,15 @@ const main = async () => {
         answer = await render(
           <MultiSelect question="Select your menu" options={['Pizza', 'Pasta', 'Nuggets', 'Burger']} />
         )
+        break
+      case 'Messages':
+        step('step')
+        warn('warn')
+        success('success', null)
+        error('error', false)
+        info('info')
+        question('question', null)
+        comment('comment')
         break
       case 'Tabs':
         await render(<Tabs tabs={['one', 'two', 'three']} onChange={d => onTabsChangeHandler(d)} />)
