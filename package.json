@@ -1,6 +1,6 @@
 {
   "name": "node-cli",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "🖍️ Build a beautiful Node.js CLI with colors, pre-build elements and optional JSX support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
